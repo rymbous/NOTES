@@ -1,0 +1,120 @@
+RESPONSIVE DESIGN
+
+using CSS 
+
+Reorder restructure Page:  
+	**element; "Viewport Meta Tag"**
+	`width=device-width`  /*sets the width of viewport to width of screen*/
+	`initial-scale=1` /*prevents zooming when switching to landscape on mobile by setting zoom level to 1.0*/
+	used in the <head> of a html doc;
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+	applying conditions:
+	- and
+	- not
+	-  (,)  /* meaning "or"*/
+
+	use of Relative Units:
+	adding `min-width` to elements 
+	adding vh, or vw to elements  
+	
+	
+	Using SVG for image responsiveness: 
+DEF: Scalable Vector Graphics 
+is an html element <svg> rather than <img> for old browsers 
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+    <circle cx="100" cy="100" r="80" fill="blue" />
+</svg> in html 
+or 
+
+svg {
+    width: 100%;
+    height: auto;
+    max-width: 200px; /* Optional: Set a maximum width */
+    max-height: 200px; /* Optional: Set a maximum height */
+}
+in css
+
+
+ 
+
+## Examples:
+		.container {
+    max-width: 960px; /* Set a maximum width for the container */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add some padding for spacing */
+
+    /* Set a minimum width to prevent the container from becoming too narrow */
+    min-width: 320px;
+}
+
+/* Example of responsive styles for a two-column layout */
+.item {
+    /* Set width to 50% for each item to create a two-column layout */
+    width: 50%;
+    float: left; /* Float items to the left */
+
+    /* Add some padding and margin for spacing */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Media query to adjust layout for smaller screens */
+@media screen and (max-width: 768px) {
+    .item {
+        /* Change width to 100% for each item to create a single-column layout */
+        width: 100%;
+@media media-type and (media-feature) {
+    /* CSS styles to apply when the media query condition is met */
+@media screen and (orientation: landscape) 
+	.container{ 
+		width: 60%;
+		}
+}
+}
+
+
+
+*## Sass*
+**Sass common breakpoints for screen size** 
+	$small-screen: 576px;
+	$medium-screen: 768px;
+	$large-screen: 992px;
+	$extra-large-screen: 1200px;
+
+	/* Example usage in media queries */
+@media screen and (min-width: $small-screen) {
+    /* Styles for small devices and larger */
+	}
+
+	@media screen and (min-width: $medium-screen) {
+    /* Styles for medium devices and larger */
+	}
+
+	@media screen and (min-width: $large-screen) {
+    /* Styles for large devices and larger */
+	}
+
+	@media screen and (min-width: $extra-large-screen) {
+    /* Styles for extra-large devices and larger */
+	}
+
+use of @mixin 
+	define reusable pieces of css code
+
+@mixin center-element {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+*/ now "center-element" properties can be reused and added to other elements by "@include" */
+.element {
+    @include center-element;
+    width: 200px;
+    height: 200px;
+    background-color: #ccc;
+}
+
+
+
